@@ -4,4 +4,7 @@
          ng-message-exp="name">
         {{message(fc.$viewValue, fc.$modelValue, this)}}
     </div>
+    <div ng-if="to.requiredValidationMessage" ng-message="required">
+      {{to.requiredValidationMessage}}
+    </div>
 </div>

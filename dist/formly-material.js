@@ -1,4 +1,4 @@
-/*! angular-formly-material v0.14.2 | MIT | built with ♥ by Kamil Kisiela <mys.sterowiec@gmail.com> */
+/*! angular-formly-material v0.14.3 | MIT | built with ♥ by Kamil Kisiela <mys.sterowiec@gmail.com> */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("angular"));
@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _wrappers2 = _interopRequireDefault(_wrappers);
 
-	var _types = __webpack_require__(14);
+	var _types = __webpack_require__(16);
 
 	var _types2 = _interopRequireDefault(_types);
 
@@ -263,9 +263,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _divider2 = _interopRequireDefault(_divider);
 
+	var _hint = __webpack_require__(14);
+
+	var _hint2 = _interopRequireDefault(_hint);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = [_inputContainer2.default, _label2.default, _messages2.default, _divider2.default];
+	exports.default = [_inputContainer2.default, _label2.default, _messages2.default, _divider2.default, _hint2.default];
 
 /***/ },
 /* 6 */
@@ -294,7 +298,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = "<md-input-container md-theme=\"{{to.theme}}\">\n    <formly-transclude></formly-transclude>\n</md-input-container>\n";
+	module.exports = "<md-input-container md-theme=\"{{to.theme}}\" class=\"{{to.className}} md-block\">\n    <formly-transclude></formly-transclude>\n</md-input-container>\n";
 
 /***/ },
 /* 8 */
@@ -359,7 +363,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 11 */
 /***/ function(module, exports) {
 
-	module.exports = "<formly-transclude></formly-transclude>\n<div ng-messages=\"fc.$error\" ng-show=\"showError\">\n    <div ng-repeat=\"(name, message) in ::options.validation.messages\"\n         ng-message-exp=\"name\">\n        {{message(fc.$viewValue, fc.$modelValue, this)}}\n    </div>\n</div>\n";
+	module.exports = "<formly-transclude></formly-transclude>\n<div ng-messages=\"fc.$error\" ng-show=\"showError\">\n    <div ng-repeat=\"(name, message) in ::options.validation.messages\"\n         ng-message-exp=\"name\">\n        {{message(fc.$viewValue, fc.$modelValue, this)}}\n    </div>\n    <div ng-if=\"to.requiredValidationMessage\" ng-message=\"required\">\n      {{to.requiredValidationMessage}}\n    </div>\n</div>\n";
 
 /***/ },
 /* 12 */
@@ -407,48 +411,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _checkbox = __webpack_require__(15);
+	var _hint = __webpack_require__(15);
 
-	var _checkbox2 = _interopRequireDefault(_checkbox);
-
-	var _chips = __webpack_require__(17);
-
-	var _chips2 = _interopRequireDefault(_chips);
-
-	var _datepicker = __webpack_require__(19);
-
-	var _datepicker2 = _interopRequireDefault(_datepicker);
-
-	var _input = __webpack_require__(21);
-
-	var _input2 = _interopRequireDefault(_input);
-
-	var _radio = __webpack_require__(23);
-
-	var _radio2 = _interopRequireDefault(_radio);
-
-	var _select = __webpack_require__(25);
-
-	var _select2 = _interopRequireDefault(_select);
-
-	var _slider = __webpack_require__(27);
-
-	var _slider2 = _interopRequireDefault(_slider);
-
-	var _switch = __webpack_require__(29);
-
-	var _switch2 = _interopRequireDefault(_switch);
-
-	var _textarea = __webpack_require__(31);
-
-	var _textarea2 = _interopRequireDefault(_textarea);
+	var _hint2 = _interopRequireDefault(_hint);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = [_checkbox2.default, _chips2.default, _datepicker2.default, _input2.default, _radio2.default, _select2.default, _slider2.default, _switch2.default, _textarea2.default];
+	exports.default = function (formlyConfigProvider) {
+	  formlyConfigProvider.setWrapper({
+	    template: _hint2.default,
+	    name: 'hint'
+	  });
+	};
 
 /***/ },
 /* 15 */
+/***/ function(module, exports) {
+
+	module.exports = "<formly-transclude></formly-transclude>\n<div class=\"hint\" ng-if=\"to.hint\">{{to.hint}}</div>\n";
+
+/***/ },
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -457,7 +440,57 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _checkbox = __webpack_require__(16);
+	var _checkbox = __webpack_require__(17);
+
+	var _checkbox2 = _interopRequireDefault(_checkbox);
+
+	var _chips = __webpack_require__(19);
+
+	var _chips2 = _interopRequireDefault(_chips);
+
+	var _datepicker = __webpack_require__(21);
+
+	var _datepicker2 = _interopRequireDefault(_datepicker);
+
+	var _input = __webpack_require__(23);
+
+	var _input2 = _interopRequireDefault(_input);
+
+	var _radio = __webpack_require__(25);
+
+	var _radio2 = _interopRequireDefault(_radio);
+
+	var _select = __webpack_require__(27);
+
+	var _select2 = _interopRequireDefault(_select);
+
+	var _slider = __webpack_require__(29);
+
+	var _slider2 = _interopRequireDefault(_slider);
+
+	var _switch = __webpack_require__(31);
+
+	var _switch2 = _interopRequireDefault(_switch);
+
+	var _textarea = __webpack_require__(33);
+
+	var _textarea2 = _interopRequireDefault(_textarea);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = [_checkbox2.default, _chips2.default, _datepicker2.default, _input2.default, _radio2.default, _select2.default, _slider2.default, _switch2.default, _textarea2.default];
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _checkbox = __webpack_require__(18);
 
 	var _checkbox2 = _interopRequireDefault(_checkbox);
 
@@ -486,13 +519,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n    <md-checkbox ng-model=\"model[options.key]\" md-theme=\"{{to.theme}}\">\n        {{to.label}}\n    </md-checkbox>\n</div>\n";
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -501,7 +534,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _chips = __webpack_require__(18);
+	var _chips = __webpack_require__(20);
 
 	var _chips2 = _interopRequireDefault(_chips);
 
@@ -528,13 +561,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          attribute: 'delete-hint'
 	        },
 	        onAdd: {
-	          bound: 'md-on-add'
+	          statement: 'md-on-add'
 	        },
 	        onRemove: {
-	          bound: 'md-on-remove'
+	          statement: 'md-on-remove'
 	        },
 	        onSelect: {
-	          bound: 'md-on-select'
+	          statement: 'md-on-select'
 	        }
 	      }
 	    },
@@ -556,13 +589,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = "<md-chips ng-model=\"model[options.key]\" readonly=\"to.disabled\" md-theme=\"{{to.theme}}\"></md-chips>\n";
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -571,7 +604,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _datepicker = __webpack_require__(20);
+	var _datepicker = __webpack_require__(22);
 
 	var _datepicker2 = _interopRequireDefault(_datepicker);
 
@@ -620,13 +653,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n    <md-datepicker ng-model=\"model[options.key]\" md-theme=\"{{to.theme}}\"></md-datepicker>\n</div>\n";
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -635,7 +668,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _input = __webpack_require__(22);
+	var _input = __webpack_require__(24);
 
 	var _input2 = _interopRequireDefault(_input);
 
@@ -647,7 +680,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  formlyConfigProvider.setType({
 	    template: _input2.default,
 	    name: 'input',
-	    wrapper: ['label', 'messages', 'inputContainer'],
+	    wrapper: ['label', 'messages', 'hint', 'inputContainer'],
 	    defaultOptions: {
 	      templateOptions: {
 	        type: 'text',
@@ -656,6 +689,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      ngModelAttrs: {
 	        mdMaxlength: {
 	          bound: 'md-maxlength'
+	        },
+	        // XXX angular-formly#8042d2a so we want to keep it compatible
+	        // with angular-formly releases before that commit
+	        step: {
+	          attribute: 'step'
 	        },
 	        disabled: {
 	          bound: 'ng-disabled'
@@ -677,25 +715,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    }
 	  });
-
-	  // add only step attribute because min and max are both built-in
-	  formlyConfigProvider.extras.fieldTransform.push(function (fields) {
-	    return (0, _helpers.ngModelAttrsTransformer)(fields, function (field) {
-	      return field.type === 'input' && field.templateOptions && field.templateOptions.type === 'number';
-	    }, 'step', {
-	      attribute: 'step'
-	    });
-	  });
 	};
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<input ng-model=\"model[options.key]\">";
+	module.exports = "<input ng-model=\"model[options.key]\">\n";
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -704,7 +733,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _radio = __webpack_require__(24);
+	var _radio = __webpack_require__(26);
 
 	var _radio2 = _interopRequireDefault(_radio);
 
@@ -729,13 +758,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = "<md-radio-group ng-model=\"model[options.key]\" md-theme=\"{{to.theme}}\">\n    <md-radio-button\n            ng-repeat=\"option in to.options\"\n            ng-disabled=\"to.disabled\"\n            ng-value=\"option[to.valueProp || 'value']\">\n            {{option[to.labelProp || 'name']}}\n    </md-radio-button>\n</md-radio-group>\n";
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -744,7 +773,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _select = __webpack_require__(26);
+	var _select = __webpack_require__(28);
 
 	var _select2 = _interopRequireDefault(_select);
 
@@ -766,10 +795,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	          bound: 'ng-disabled'
 	        },
 	        onClose: {
-	          bound: 'md-on-close'
+	          statement: 'md-on-close'
 	        },
 	        onOpen: {
-	          bound: 'md-on-open'
+	          statement: 'md-on-open'
 	        }
 	      }
 	    },
@@ -798,13 +827,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = "<md-select ng-model=\"model[options.key]\" md-theme=\"{{to.theme}}\">\n    <md-option ng-repeat=\"option in to.options\" ng-value=\"option[to.valueProp || 'value']\">\n        {{ option[to.labelProp || 'name'] }}\n    </md-option>\n</md-select>\n";
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -813,7 +842,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _slider = __webpack_require__(28);
+	var _slider = __webpack_require__(30);
 
 	var _slider2 = _interopRequireDefault(_slider);
 
@@ -862,13 +891,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports) {
 
 	module.exports = "<md-slider ng-model=\"model[options.key]\" md-theme=\"{{to.theme}}\"></md-slider>\n";
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -877,7 +906,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _switch = __webpack_require__(30);
+	var _switch = __webpack_require__(32);
 
 	var _switch2 = _interopRequireDefault(_switch);
 
@@ -909,13 +938,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports) {
 
 	module.exports = "<md-switch ng-model=\"model[options.key]\" md-theme=\"{{to.theme}}\">\n    {{to.label}}\n</md-switch>\n";
 
 /***/ },
-/* 31 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -924,7 +953,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _textarea = __webpack_require__(32);
+	var _textarea = __webpack_require__(34);
 
 	var _textarea2 = _interopRequireDefault(_textarea);
 
@@ -976,7 +1005,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 32 */
+/* 34 */
 /***/ function(module, exports) {
 
 	module.exports = "<textarea ng-model=\"model[options.key]\"></textarea>";

@@ -5,7 +5,7 @@ export default (formlyConfigProvider) => {
   formlyConfigProvider.setType({
     template,
     name: 'input',
-    wrapper: ['label', 'messages', 'inputContainer'],
+    wrapper: ['label', 'messages', 'hint', 'inputContainer'],
     defaultOptions: {
       templateOptions: {
         type: 'text',
