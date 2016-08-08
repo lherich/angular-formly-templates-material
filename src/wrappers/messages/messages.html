@@ -4,7 +4,7 @@
          ng-message-exp="name">
         {{message(fc.$viewValue, fc.$modelValue, this)}}
     </div>
-    <div ng-if="to.requiredValidationMessage" ng-message="required">
-      {{to.requiredValidationMessage}}
+    <div ng-repeat="(key, message) in to" ng-message-exp="(key.substr(0, key.length - 17))" ng-if="(key.substr(-17) == 'ValidationMessage')">
+      {{message}}
     </div>
 </div>
